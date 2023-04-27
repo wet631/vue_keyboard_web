@@ -1,0 +1,23 @@
+{
+  "id": "4041928",
+  "name": "7999",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "945481",
+      "name": "弹出键盘",
+      "font_class": "danchujianpan",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "945482",
+      "name": "收起键盘",
+      "font_class": "shouqijianpan",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    }
+  ]
+}

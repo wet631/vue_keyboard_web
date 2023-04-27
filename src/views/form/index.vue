@@ -4,6 +4,10 @@
       <el-form-item label="Activity name">
         <el-input v-model="form.name" />
       </el-form-item>
+      <el-form-item label="请输入车牌">
+        <!-- <el-input v-model="form.name" /> -->
+        <vnpInput></vnpInput>
+      </el-form-item>
       <el-form-item label="Activity zone">
         <el-select v-model="form.region" placeholder="please select your zone">
           <el-option label="Zone one" value="shanghai" />
@@ -39,16 +43,28 @@
       <el-form-item label="Activity form">
         <el-input v-model="form.desc" type="textarea" />
       </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="onSubmit">Create</el-button>
-        <el-button @click="onCancel">Cancel</el-button>
+      <el-form-item label="Activity form">
+        <el-input v-model="form.desc" type="textarea" />
+      </el-form-item>
+      <el-form-item label="Activity form">
+        <el-input v-model="form.desc" type="textarea" />
+      </el-form-item>
+      <el-form-item label="Activity form">
+        <el-input v-model="form.desc" type="textarea" />
+      </el-form-item>
+      <el-form-item label="请输入车牌">
+        <vnpInput></vnpInput>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script>
+import vnpInput from '@/components/car_keyboard_web/vnp-input.vue'
 export default {
+  components:{
+    vnpInput
+  },
   data() {
     return {
       form: {
