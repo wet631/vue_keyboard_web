@@ -1,6 +1,6 @@
 <template>
   <div class="main_box">
-    <div class="inputBox" >
+    <div class="inputBox">
       <!-- <el-input
         v-model="inputNumber"
         placeholder="请输入车牌"
@@ -30,6 +30,7 @@
             v-show="showKeyBoard"
             @carName="carName"
             class="vnp_keyBoard"
+            ref="keyboard"
           ></vnp_keyboard>
         </transition>
       </div>
@@ -56,41 +57,25 @@ export default {
   },
   methods: {
     mainBox() {
-      // console.log(111);
-      // const inputElement = document.getElementsByClassName("inputBox");
-      // const floatingDivElement =
-      //   document.getElementsByClassName("vnp_keyBoard");
-      // console.log(inputElement, 222);
-      // // 获取输入框相对于文档顶部的距离和高度
-      // const inputTop =
-      //   inputElement.getBoundingClientRect().top + window.pageYOffset;
-      // const inputHeight = inputElement.offsetHeight;
-      // console.log(inputElement.getBoundingClientRect().top, 3333);
-      // // 获取当前窗口高度
-      // const windowHeight = window.innerHeight;
-
-      // // 判断是否需要在上方展示浮动 `div`
-      // if (
-      //   inputTop + inputHeight + floatingDivElement.offsetHeight >
-      //   windowHeight
-      // ) {
-      //   // 在输入框上方展示
-      //   floatingDivElement.style.top = `${
-      //     inputTop - floatingDivElement.offsetHeight
-      //   }px`;
-      // } else {
-      //   // 在输入框下方展示
-      //   floatingDivElement.style.top = `${inputTop + inputHeight}px`;
-      // }
-      
+      const inputElement = document.querySelector(".inputBox");
+      const floatingDivElement = this.$refs.keyboard.$el;
+      // 获取输入框相对于文档顶部的距离和高度
+      const inputTop = inputElement.getBoundingClientRect().top;
+      // 获取当前窗口高度
+      const windowHeight = document.documentElement.clientHeight;
+      // 175 为键盘高度 
+      if (windowHeight - inputTop < 175) {
+        // 在输入框上方展示键盘
+        floatingDivElement.style.top = `${-185}px`;
+      } else {
+        floatingDivElement.style.top = `50px`;
+      }
       this.showKeyBoard = true;
-      // this.showInput = true;
       this.rotateA = true;
     },
     carName(val) {
       this.inputNumber = val;
       this.showKeyBoard = false;
-      console.log(2222);
       // this.showInput = false;
       this.rotateA = false;
     },

@@ -180,38 +180,38 @@ export default {
   padding: 0 0.2rem 0.2rem 0.2rem;
   line-height: 0;
 }
-.keyboard_box:before {
-  box-sizing: content-box;
-  width: 0px;
-  height: 0px;
-  position: absolute;
-  top: -9px;
-  left: 35px;
-  padding: 0;
-  border-bottom: 5px solid #fff;
-  border-top: 5px solid transparent;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  display: block;
-  content: "";
-  z-index: 12;
-}
-.keyboard_box:after {
-  box-sizing: content-box;
-  width: 0px;
-  height: 0px;
-  position: absolute;
-  top: -10px;
-  left: 35px;
-  padding: 0;
-  border-bottom: 5px solid #eaeaea;
-  border-top: 5px solid transparent;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  display: block;
-  content: "";
-  z-index: 10;
-}
+// .keyboard_box:before {
+//   box-sizing: content-box;
+//   width: 0px;
+//   height: 0px;
+//   position: absolute;
+//   top: -9px;
+//   left: 35px;
+//   padding: 0;
+//   border-bottom: 5px solid #fff;
+//   border-top: 5px solid transparent;
+//   border-left: 5px solid transparent;
+//   border-right: 5px solid transparent;
+//   display: block;
+//   content: "";
+//   z-index: 12;
+// }
+// .keyboard_box:after {
+//   box-sizing: content-box;
+//   width: 0px;
+//   height: 0px;
+//   position: absolute;
+//   top: -10px;
+//   left: 35px;
+//   padding: 0;
+//   border-bottom: 5px solid #eaeaea;
+//   border-top: 5px solid transparent;
+//   border-left: 5px solid transparent;
+//   border-right: 5px solid transparent;
+//   display: block;
+//   content: "";
+//   z-index: 10;
+// }
 .vnp-header {
   height: 0.92rem;
   display: flex;

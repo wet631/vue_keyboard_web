@@ -6,7 +6,7 @@
       </el-form-item>
       <el-form-item label="请输入车牌">
         <!-- <el-input v-model="form.name" /> -->
-        <vnpInput></vnpInput>
+        <!-- <vnpInput></vnpInput> -->
       </el-form-item>
       <el-form-item label="Activity zone">
         <el-select v-model="form.region" placeholder="please select your zone">
