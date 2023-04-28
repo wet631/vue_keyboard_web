@@ -52,6 +52,7 @@
       <el-form-item label="Activity form">
         <el-input v-model="form.desc" type="textarea" />
       </el-form-item>
+      <!-- 测试 -->
       <el-form-item label="请输入车牌">
         <vnpInput></vnpInput>
       </el-form-item>

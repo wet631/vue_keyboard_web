@@ -1,6 +1,6 @@
 <template>
   <div class="main_box">
-    <div class="inputBox">
+    <div class="inputBox" >
       <!-- <el-input
         v-model="inputNumber"
         placeholder="请输入车牌"
@@ -9,13 +9,14 @@
         clearable
         :disabled="showInput"
       ></el-input> -->
-      <div class="inputMain" @click="inputMainBtn">
+      <div class="inputMain">
         <input
           type="text"
           placeholder="请输入车牌"
           v-model="inputNumber"
           :disabled="showInput"
           class="vnp_input"
+          @click="mainBox"
         />
       </div>
       <div class="iconBox">
@@ -23,7 +24,6 @@
           src="./pic/danchujianpan.png"
           alt=""
           :class="rotateA ? 'picBox' : 'picBox go'"
-          @click="showBtn"
         />
         <transition name="fade">
           <vnp_keyboard
@@ -51,16 +51,21 @@ export default {
   components: {
     vnp_keyboard,
   },
+  mounted() {
+    window.onload = () => {};
+  },
   methods: {
-    showBtn() {
-      // const inputElement = document.getElementsByClassName("inputMain");
+    mainBox() {
+      // console.log(111);
+      // const inputElement = document.getElementsByClassName("inputBox");
       // const floatingDivElement =
       //   document.getElementsByClassName("vnp_keyBoard");
+      // console.log(inputElement, 222);
       // // 获取输入框相对于文档顶部的距离和高度
       // const inputTop =
       //   inputElement.getBoundingClientRect().top + window.pageYOffset;
       // const inputHeight = inputElement.offsetHeight;
-
+      // console.log(inputElement.getBoundingClientRect().top, 3333);
       // // 获取当前窗口高度
       // const windowHeight = window.innerHeight;
 
@@ -77,15 +82,17 @@ export default {
       //   // 在输入框下方展示
       //   floatingDivElement.style.top = `${inputTop + inputHeight}px`;
       // }
-      this.showKeyBoard = !this.showKeyBoard;
+      
+      this.showKeyBoard = true;
       // this.showInput = true;
-      this.rotateA = !this.rotateA;
+      this.rotateA = true;
     },
-    inputMainBtn() {},
     carName(val) {
       this.inputNumber = val;
       this.showKeyBoard = false;
-      this.showInput = false;
+      console.log(2222);
+      // this.showInput = false;
+      this.rotateA = false;
     },
   },
 };

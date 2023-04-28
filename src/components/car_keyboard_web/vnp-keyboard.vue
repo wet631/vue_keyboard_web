@@ -155,9 +155,9 @@ export default {
         });
         return;
       }
-      console.log("输入正确");
+      // console.log("输入正确");
       this.$emit("carName", this.val);
-      this.visible = false;
+      // this.visible = false;
     },
   },
 };
@@ -165,8 +165,8 @@ export default {
 
 <style lang="scss" scoped>
 .keyboard_box {
-  position: fixed;
-  position: relative;
+  // position: fixed;
+  // position: relative;
   float: left;
   z-index: 99999;
   width: 14rem;
