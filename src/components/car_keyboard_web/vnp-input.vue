@@ -1,6 +1,6 @@
 <template>
   <div class="main_box">
-    <div class="inputBox">
+    <div class="inputBox" @click.stop>
       <!-- <el-input
         v-model="inputNumber"
         placeholder="请输入车牌"
@@ -23,16 +23,19 @@
         <img
           src="./pic/danchujianpan.png"
           alt=""
+          @click="iconBtn"
           :class="rotateA ? 'picBox' : 'picBox go'"
         />
-        <transition name="fade">
-          <vnp_keyboard
-            v-show="showKeyBoard"
-            @carName="carName"
-            class="vnp_keyBoard"
-            ref="keyboard"
-          ></vnp_keyboard>
-        </transition>
+        <!-- <div v-show="show"> -->
+          <transition name="fade">
+            <vnp_keyboard
+              v-show="showKeyBoard"
+              @carName="carName"
+              class="vnp_keyBoard"
+              ref="keyboard"
+            ></vnp_keyboard>
+          </transition>
+        <!-- </div> -->
       </div>
     </div>
   </div>
@@ -47,13 +50,36 @@ export default {
       showKeyBoard: false,
       showInput: false,
       rotateA: false,
+      // show: true,
     };
   },
   components: {
     vnp_keyboard,
   },
+  watch: {
+    // showKeyBoard(val) {
+    //   console.log(val, 111);
+    //   if (val === true) {
+    //     document.body.addEventListener("click", () => {
+    //       console.log(11);
+    //       this.showKeyBoard = false;
+    //       console.log(22);
+    //     });
+    //   } else if (val === false) {
+    //     document.body.removeEventListener("click", () => {
+    //       console.log(33);
+    //       this.showKeyBoard = true;
+    //     });
+    //   }
+    // },
+  },
   mounted() {
-    window.onload = () => {};
+    document.body.addEventListener('click',()=>{
+      console.log(111);
+      this.showKeyBoard = false
+      this.rotateA = false
+      this.showInput = false
+    },false)
   },
   methods: {
     mainBox() {
@@ -63,7 +89,7 @@ export default {
       const inputTop = inputElement.getBoundingClientRect().top;
       // 获取当前窗口高度
       const windowHeight = document.documentElement.clientHeight;
-      // 175 为键盘高度 
+      // 175 为键盘高度
       if (windowHeight - inputTop < 175) {
         // 在输入框上方展示键盘
         floatingDivElement.style.top = `${-185}px`;
@@ -71,13 +97,21 @@ export default {
         floatingDivElement.style.top = `50px`;
       }
       this.showKeyBoard = true;
+      this.showInput = true;
       this.rotateA = true;
     },
+    // 传递过来的input的值 点击完成的时候
     carName(val) {
       this.inputNumber = val;
       this.showKeyBoard = false;
-      // this.showInput = false;
+      this.showInput = false;
       this.rotateA = false;
+    },
+    // 点击icon显示键盘
+    iconBtn() {
+      this.showKeyBoard = true;
+      this.showInput = true;
+      this.rotateA = true;
     },
   },
 };
@@ -87,11 +121,7 @@ export default {
 .inputBox {
   width: 200px;
   height: 40px;
-  // background-color: pink;
   display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
   border-radius: 3px;
   border: 1px solid #c0c3cb;
   .inputMain {
@@ -101,7 +131,6 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // background-color: pink;
     padding-left: 15px;
     input {
       border: 0; /*清除自带的2px的边框*/
@@ -161,20 +190,20 @@ img {
   opacity: 0;
 }
 
-input::-webkit-input-placeholder {
-  /* WebKit browsers 适配谷歌 */
-  color: #c4c3cb;
-}
-input:-moz-placeholder {
-  /* Mozilla Firefox 4 to 18 适配火狐 */
-  color: #c4c3cb;
-}
-input::-moz-placeholder {
-  /* Mozilla Firefox 19+ 适配火狐 */
-  color: #c4c3cb;
-}
-input:-ms-input-placeholder {
-  /* Internet Explorer 10+  适配ie*/
-  color: #c4c3cb;
-}
+// input::-webkit-input-placeholder {
+//   /* WebKit browsers 适配谷歌 */
+//   color: #c4c3cb;
+// }
+// input:-moz-placeholder {
+//   /* Mozilla Firefox 4 to 18 适配火狐 */
+//   color: #c4c3cb;
+// }
+// input::-moz-placeholder {
+//   /* Mozilla Firefox 19+ 适配火狐 */
+//   color: #c4c3cb;
+// }
+// input:-ms-input-placeholder {
+//   /* Internet Explorer 10+  适配ie*/
+//   color: #c4c3cb;
+// }
 </style>

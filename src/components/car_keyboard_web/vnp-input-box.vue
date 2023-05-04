@@ -118,9 +118,8 @@ export default {
       > span {
         height: 100%;
         width: 1rem;
-        display: inline-block;
+        text-align: center;
         border-bottom: 0.02rem solid #1989fa;
-        // border-color: #41d04f;
       }
     }
   }
